@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PolicyController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TermsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[HomeController::class,'HomeIndex']);
+
+Route::get('/course',[CourseController::class,'courseIndex']);
+Route::get('/projects',[ProjectController::class,'projectIndex']);
+Route::get('/terms-condition',[TermsController::class,'termsIndex']);
+Route::get('/policy',[PolicyController::class,'policyIndex']);
+Route::post('/Contactsend',[HomeController::class,'contactSend']);
